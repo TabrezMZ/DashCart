@@ -3,6 +3,7 @@ class ChartManager {
     this.currentYear = "2023"
     this.charts = {}
     this.hoveredPoint = null
+    this.sessionsHoveredPoint = null
     this.init()
   }
 
@@ -354,10 +355,30 @@ class ChartManager {
   }
 
   drawTooltip(ctx, x, y, data) {
-    const tooltipWidth = 140
-    const tooltipHeight = 80
-    let tooltipX = x - tooltipWidth / 2
-    let tooltipY = y - tooltipHeight - 20
+
+    const padding = 8
+  const lineHeight = 16
+  const tooltipWidth = 100
+  const tooltipHeight = data.showSessionsOnly ? 2 * lineHeight + padding * 2 : 80
+
+  const tooltipX = x
+  const tooltipY = y - tooltipHeight - 10
+
+  // Background
+  ctx.fillStyle = "#1e293b"
+  ctx.fillRect(tooltipX, tooltipY, tooltipWidth, tooltipHeight)
+
+  ctx.fillStyle = "#f1f5f9"
+  ctx.font = "12px sans-serif"
+  ctx.textAlign = "center"
+
+  if (data.showSessionsOnly) {
+    ctx.fillText(`${data.sessions} sessions`, tooltipX + tooltipWidth / 2, tooltipY + padding + lineHeight)
+    ctx.fillStyle = "#94a3b8"
+    ctx.font = "11px sans-serif"
+    ctx.fillText(data.time, tooltipX + tooltipWidth / 2, tooltipY + padding + lineHeight * 2)
+    return
+  }
 
     // Adjust tooltip position if it goes off screen
     if (tooltipX < 10) tooltipX = 10
@@ -480,7 +501,11 @@ class ChartManager {
 
 
   createSessionsChart() {
+  
     const canvas = document.getElementById("sessionsChart")
+    canvas.addEventListener("mousemove", e => this.handleMouseMoveSessions(e, canvas))
+    canvas.addEventListener("mouseleave", () => this.handleMouseLeaveSessions(canvas))
+    
     const ctx = canvas.getContext("2d")
 
     this.charts.sessions = {
@@ -491,6 +516,46 @@ class ChartManager {
 
     this.charts.sessions.draw()
   }
+
+  getSessionsData() {
+    return [
+      120,150,180,160,140,170,190,220,200,280,320,350,
+      300,250,280,320,290,260,240,200,180,160,140,120,
+    ]
+  }
+
+  handleMouseMoveSessions(e, canvas) {
+    const rect = canvas.getBoundingClientRect()
+    const mouseX = (e.clientX - rect.left) * (canvas.width / rect.width)
+    const padding = 40
+    const sessionsData = this.getSessionsData()
+    const chartWidth = canvas.width - padding * 2
+  
+    let closestIndex = -1, minDist = Infinity
+    sessionsData.forEach((v,i) => {
+      const x = padding + (chartWidth / (sessionsData.length - 1)) * i
+      const dist = Math.abs(mouseX - x)
+      if (dist < minDist && dist < 20) {
+        minDist = dist
+        closestIndex = i
+      }
+    })
+  
+    if (closestIndex !== this.sessionsHoveredPoint) {
+      this.sessionsHoveredPoint = closestIndex
+      this.charts.sessions.draw()
+      canvas.style.cursor = closestIndex === -1 ? "default" : "pointer"
+    }
+  }
+  
+  handleMouseLeaveSessions(canvas) {
+    if (this.sessionsHoveredPoint !== null) {
+      this.sessionsHoveredPoint = null
+      this.charts.sessions.draw()
+      canvas.style.cursor = "default"
+    }
+  }
+  
 
   drawSessionsChart(ctx, canvas) {
     const width = canvas.width;
@@ -593,6 +658,22 @@ class ChartManager {
       const x = padding + (chartWidth / (sessionsData.length - 1)) * pos;
       ctx.fillText(timeLabels[index], x, height - 10);
     });
+    if (this.sessionsHoveredPoint != null) {
+      const i = this.sessionsHoveredPoint
+      const data = {
+        sessions: sessionsData[i],
+        hourLabel: `${Math.floor(i)}:00`,
+      }
+      const point = points[i]
+      const time =  `${i % 12 === 0 ? 12 : i % 12}:00 ${i < 12 ? 'AM' : 'PM'}`
+      const tooltipX = point.x
+      const tooltipY = point.y
+      this.drawTooltip(ctx, tooltipX, tooltipY, {
+        sessions: sessionsData[i],
+        time: time, 
+        showSessionsOnly: true
+      })
+    }   
   }
   
 
