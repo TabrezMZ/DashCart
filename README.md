@@ -37,6 +37,8 @@ dashcart/
 
 ![Product List](https://github.com/user-attachments/assets/eed6298f-7b96-4a30-8199-c185580dc29a)
 
+### Add Product Modal
+![Add Product Modal]!(https://github.com/user-attachments/assets/2346602b-24fb-4b84-8ca8-1f872eebeda9)
 
 ### Edit Product Modal
 
