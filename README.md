@@ -31,8 +31,7 @@ dashcart/
 
 ### Dashboard View
 
-![Dashboard View](https://github.com/user-attachments/assets/98fb9b52-bbee-4126-aa6b-ab17157a6d83)
-
+![Dashboard View](https://github.com/user-attachments/assets/1d36a7d0-837e-4918-ac8b-7ad58dedcbcd)
 
 ### Product List
 
