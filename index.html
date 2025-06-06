@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashark X - Dashboard</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="12" r="4" fill="#A855F7"/>
+                            <circle cx="8" cy="8" r="2" fill="#EC4899"/>
+                            <circle cx="16" cy="8" r="2" fill="#3B82F6"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">Dashark X</span>
+                </div>
+                <button class="sidebar-toggle">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M10 4L6 8L10 12" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-item active" data-page="dashboard">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M3 7V17H7V7H3Z" fill="currentColor"/>
+                        <path d="M10 3V17H14V3H10Z" fill="currentColor"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#products" class="nav-item" data-page="products">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 6H16L15 14H5L4 6Z" fill="currentColor"/>
+                        <path d="M4 6L3 2H1" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                    </svg>
+                    <span>Product List</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="John Carter">
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">John Carter</span>
+                    </div>
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="user-dropdown-icon">
+                        <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Page -->
+            <div id="dashboard-page" class="page active">
+                <header class="page-header">
+                    <div class="header-content">
+                        <h1>Welcome back, John</h1>
+                        <p>Monitor your advertising and other website traffic.</p>
+                    </div>
+                </header>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="#3B82F6"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Pageviews</h3>
+                            <div class="stat-value">50.8K <span class="stat-change positive">+8.2%</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M16 21V19C16 16.7909 14.2091 15 12 15H5C2.79086 15 1 16.7909 1 19V21" fill="#EC4899"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Monthly users</h3>
+                            <div class="stat-value">23.6K <span class="stat-change negative">-4.3%</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" fill="#10B981"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>New sign ups</h3>
+                            <div class="stat-value">756 <span class="stat-change positive">+15.3%</span></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2V22M17 5H9.5C8.11929 5 7 6.11929 7 7.5C7 8.88071 8.11929 10 9.5 10H14.5C15.8807 10 17 11.1193 17 12.5C17 13.8807 15.8807 15 14.5 15H7" fill="#F59E0B"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Subscriptions</h3>
+                            <div class="stat-value">2.3K <span class="stat-change positive">+6.2%</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Section -->
+                <div class="charts-section">
+                    <div class="chart-container main-chart">
+                        <div class="chart-header">
+                            <div class="chart-title">
+                                <h3>Total revenue</h3>
+                                <div class="chart-value">$240.9K <span class="chart-change positive">+12.5%</span></div>
+                            </div>
+                            <div class="chart-controls">
+                                <div class="date-filter">
+                                    <button class="date-filter-btn" id="dateFilterBtn">
+                                        <span id="selectedDateRange">Jan 2023 - Dec 2023</span>
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5"/>
+                                        </svg>
+                                    </button>
+                                    <div class="date-dropdown" id="dateDropdown">
+                                        <div class="date-option active" data-range="2023">Jan 2023 - Dec 2023</div>
+                                        <div class="date-option" data-range="2022">Jan 2022 - Dec 2022</div>
+                                        <div class="date-option" data-range="2021">Jan 2021 - Dec 2021</div>
+                                    </div>
+                                </div>
+                                <div class="chart-legend">
+                                    <div class="legend-item">
+                                        <span class="legend-color revenue"></span>
+                                        <span>Revenue</span>
+                                    </div>
+                                    <div class="legend-item">
+                                        <span class="legend-color expenses"></span>
+                                        <span>Expenses</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-content">
+                            <canvas id="revenueChart" width="750" height="550"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container side-chart">
+                        <div class="chart-header">
+                            <h3>Total profit</h3>
+                            <div class="chart-value">$144.6K <span class="chart-change positive">+18.2%</span></div>
+                        </div>
+                        <div class="chart-content">
+                            <canvas id="profitChart" width="350" height="200"></canvas>
+                            <p class="metric-label">last 12 months</p>
+                        </div>
+                        <hr />
+                        <div class="chart-section">
+                            <div class="metric">
+                                <span class="metric-label">Total sessions</span>
+                                <span class="metric-value">400 <span class="metric-change positive">+20.1%</span></span>
+                            </div>
+                            <div class="sessions-chart">
+                                <canvas id="sessionsChart" width="350" height="250"></canvas>
+                            </div>
+                            <div class="sessions-info">
+                                <span class="sessions-count">1.2M</span>
+                                <span class="sessions-label">Site visitors</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Products Page -->
+            <div id="products-page" class="page">
+                <header class="page-header">
+                    <div class="header-content">
+                        <h1>Product List</h1>
+                    </div>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M13 13L15 15" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                            <input type="text" placeholder="Search for products..." id="productSearch">
+                        </div>
+                        <button class="btn btn-primary" id="addProductBtn">Add New Product</button>
+                    </div>
+                </header>
+
+                <div class="products-container">
+                    <div class="products-header">
+                        <h2>All Products</h2>
+                        <span class="products-count" id="productsCount">1 - 9 of 256</span>
+                    </div>
+                    
+                    <div class="products-table-container">
+                        <table class="products-table" id="productsTable">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" id="selectAll">
+                                    </th>
+                                    <th class="sortable" data-sort="name">
+                                        Product Name
+                                        <span class="sort-indicator">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                                <path d="M6 2L9 6H3L6 2Z" fill="currentColor" opacity="0.3"/>
+                                                <path d="M6 10L3 6H9L6 10Z" fill="currentColor" opacity="0.3"/>
+                                            </svg>
+                                        </span>
+                                    </th>
+                                    <th class="sortable" data-sort="category">
+                                        Category
+                                        <span class="sort-indicator">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                                <path d="M6 2L9 6H3L6 2Z" fill="currentColor" opacity="0.3"/>
+                                                <path d="M6 10L3 6H9L6 10Z" fill="currentColor" opacity="0.3"/>
+                                            </svg>
+                                        </span>
+                                    </th>
+                                    <th class="sortable" data-sort="price">
+                                        Price
+                                        <span class="sort-indicator">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                                <path d="M6 2L9 6H3L6 2Z" fill="currentColor" opacity="0.3"/>
+                                                <path d="M6 10L3 6H9L6 10Z" fill="currentColor" opacity="0.3"/>
+                                            </svg>
+                                        </span>
+                                    </th>
+                                    <th class="sortable" data-sort="company">
+                                        Company
+                                        <span class="sort-indicator">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                                <path d="M6 2L9 6H3L6 2Z" fill="currentColor" opacity="0.3"/>
+                                                <path d="M6 10L3 6H9L6 10Z" fill="currentColor" opacity="0.3"/>
+                                            </svg>
+                                        </span>
+                                    </th>
+                                    <th class="sortable" data-sort="status">
+                                        Status
+                                        <span class="sort-indicator">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                                <path d="M6 2L9 6H3L6 2Z" fill="currentColor" opacity="0.3"/>
+                                                <path d="M6 10L3 6H9L6 10Z" fill="currentColor" opacity="0.3"/>
+                                            </svg>
+                                        </span>
+                                    </th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTableBody">
+                                <!-- Products will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="pagination">
+                        <span class="pagination-info">Rows per page: 9</span>
+                        <div class="pagination-controls">
+                            <button class="pagination-btn" id="prevPage">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M10 4L6 8L10 12" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                            </button>
+                            <button class="pagination-btn" id="nextPage">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                    <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Add new product</h3>
+                <button class="modal-close" id="modalClose">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="1.5"/>
+                    </svg>
+                </button>
+            </div>
+            <form class="modal-form" id="productForm">
+                <div class="form-group">
+                    <label for="productName">Product name</label>
+                    <input type="text" id="productName" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productPhoto">Product photo</label>
+                    <div class="photo-upload" id="photoUpload">
+                        <div class="upload-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" stroke-width="2"/>
+                                <path d="M21 15L16 10L5 21" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <p>Click to upload or drag and drop<br>SVG, PNG, JPG or GIF (max. 800 x 400px)</p>
+                        <input type="file" id="productPhoto" name="photo" accept="image/*" hidden>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productCategory">Category</label>
+                    <div class="custom-select">
+                        <button type="button" class="select-trigger" id="categorySelect">
+                            <span>Accessories</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </button>
+                        <div class="select-dropdown" id="categoryDropdown">
+                            <div class="select-option active" data-value="accessories">Accessories</div>
+                            <div class="select-option" data-value="clothing">Clothing</div>
+                            <div class="select-option" data-value="cosmetics">Cosmetics</div>
+                            <div class="select-option" data-value="telecommunication">Telecommunication</div>
+                            <div class="select-option" data-value="digital">Digital</div>
+                            <div class="select-option" data-value="light">Light</div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="productCategory" name="category" value="accessories">
+                </div>
+                
+                <div class="form-group">
+                    <label for="productPrice">Price (in $)</label>
+                    <input type="number" id="productPrice" name="price" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productCompany">Company</label>
+                    <div class="custom-select">
+                        <button type="button" class="select-trigger" id="companySelect">
+                            <div class="company-option">
+                                <div class="company-logo google"></div>
+                                <span>Google</span>
+                            </div>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </button>
+                        <div class="select-dropdown" id="companyDropdown">
+                            <div class="select-option active" data-value="google">
+                                <div class="company-option">
+                                    <div class="company-logo google"></div>
+                                    <span>Google</span>
+                                </div>
+                            </div>
+                            <div class="select-option" data-value="facebook">
+                                <div class="company-option">
+                                    <div class="company-logo facebook"></div>
+                                    <span>Facebook</span>
+                                </div>
+                            </div>
+                            <div class="select-option" data-value="twitter">
+                                <div class="company-option">
+                                    <div class="company-logo twitter"></div>
+                                    <span>Twitter</span>
+                                </div>
+                            </div>
+                            <div class="select-option" data-value="youtube">
+                                <div class="company-option">
+                                    <div class="company-logo youtube"></div>
+                                    <span>YouTube</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="productCompany" name="company" value="google">
+                </div>
+                
+                <div class="form-group">
+                    <label for="productStatus">Status</label>
+                    <div class="custom-select">
+                        <button type="button" class="select-trigger" id="statusSelect">
+                            <span class="status-badge in-stock">In Stock</span>
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </button>
+                        <div class="select-dropdown" id="statusDropdown">
+                            <div class="select-option active" data-value="in-stock">
+                                <span class="status-badge in-stock">In Stock</span>
+                            </div>
+                            <div class="select-option" data-value="out-of-stock">
+                                <span class="status-badge out-of-stock">Out of Stock</span>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="productStatus" name="status" value="in-stock">
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
