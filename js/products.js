@@ -7,6 +7,7 @@ class ProductManager {
     this.editingProduct = null
     this.sortField = null
     this.sortDirection = "asc"
+    this.tempImage = null;
     this.init()
   }
 
@@ -81,17 +82,18 @@ class ProductManager {
 
     photoInput.addEventListener("change", (e) => {
       if (e.target.files && e.target.files[0]) {
-        const file = e.target.files[0]
-        const reader = new FileReader()
-        reader.onload = (e) => {
+        const file = e.target.files[0];
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          this.tempImage = ev.target.result; // store image data
+    
           photoUpload.innerHTML = `
-                        <img src="${e.target.result}" alt="Product" style="width: 100%; height: 100px; object-fit: cover; border-radius: 8px;">
-                    `
-        }
-        reader.readAsDataURL(file)
+            <img src="${ev.target.result}" alt="Product" style="width:100%; height:100px; object-fit:cover; border-radius:8px;">
+          `;
+        };
+        reader.readAsDataURL(file);
       }
-    })
-
+    });
     // Custom selects
     this.initCustomSelects()
   }
@@ -306,6 +308,17 @@ class ProductManager {
     categorySelect.querySelector("span").textContent = categoryText
     categoryInput.value = product.category
 
+    // set photo
+    const photoUpload = document.getElementById("photoUpload");
+    if (product.image) {
+      photoUpload.innerHTML = `
+        <img src="${product.image}" alt="Product" style="width:100%; height:100px; object-fit:cover; border-radius:8px;">
+      `;
+      this.tempImage = product.image;
+    } else {
+      this.resetForm(); 
+    }
+
     // Set company
     const companySelect = document.getElementById("companySelect")
     const companyInput = document.getElementById("productCompany")
@@ -357,13 +370,19 @@ class ProductManager {
 
   saveProduct() {
     const formData = new FormData(document.getElementById("productForm"))
+
+    if (!this.tempImage) {
+      alert("Please upload a product image.");
+      return;
+    }
+    
     const productData = {
       name: formData.get("name"),
       category: formData.get("category"),
       price: Number.parseInt(formData.get("price")),
       company: formData.get("company"),
       status: formData.get("status"),
-      image: null,
+      image: this.tempImage,
     }
 
     if (this.editingProduct) {
